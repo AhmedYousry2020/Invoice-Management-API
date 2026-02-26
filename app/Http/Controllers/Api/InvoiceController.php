@@ -58,7 +58,7 @@ class InvoiceController extends Controller
 
     public function show(Invoice $invoice)
     {
-        $this->authorize('view', [Invoice::class, $invoice->contract]);
+        $this->authorize('view', [Invoice::class, $invoice]);
 
         $invoice = $this->invoiceService
             ->getInvoiceDetails($invoice->id);
