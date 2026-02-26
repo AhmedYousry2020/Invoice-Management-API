@@ -1,0 +1,303 @@
+{
+  "info": {
+    "_postman_id": "8fd9f52a-0f99-4736-9635-2ad6232fa608",
+    "name": "Invoice Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "12014549",
+    "_collection_link": "https://go.postman.co/collection/12014549-8fd9f52a-0f99-4736-9635-2ad6232fa608?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create invoice for a contract",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "1|gqcBHDyfPGCY6ei9BtIBDVrnkoIVe5rXSJhxJuEXa1315229",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "contract_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "a3627b43-a11a-495f-ba39-dab69a008be7"
+            },
+            {
+              "key": "due_date",
+              "value": "2026-02-28",
+              "type": "text",
+              "uuid": "7a6228a6-3172-4864-b289-a35055fb50b6"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/contracts/1/invoices",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "contracts",
+            "1",
+            "invoices"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List invoices for a contract",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "1|gqcBHDyfPGCY6ei9BtIBDVrnkoIVe5rXSJhxJuEXa1315229",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "contract_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "a3627b43-a11a-495f-ba39-dab69a008be7"
+            },
+            {
+              "key": "due_date",
+              "value": "2026-02-28",
+              "type": "text",
+              "uuid": "7a6228a6-3172-4864-b289-a35055fb50b6"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/contracts/1/invoices",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "contracts",
+            "1",
+            "invoices"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get invoice details with payments",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "1|gqcBHDyfPGCY6ei9BtIBDVrnkoIVe5rXSJhxJuEXa1315229",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "contract_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "a3627b43-a11a-495f-ba39-dab69a008be7"
+            },
+            {
+              "key": "due_date",
+              "value": "2026-02-28",
+              "type": "text",
+              "uuid": "7a6228a6-3172-4864-b289-a35055fb50b6"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/invoices/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "invoices",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Record a payment",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "1|gqcBHDyfPGCY6ei9BtIBDVrnkoIVe5rXSJhxJuEXa1315229",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "invoice_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "a3627b43-a11a-495f-ba39-dab69a008be7"
+            },
+            {
+              "key": "amount",
+              "value": "500",
+              "type": "text",
+              "uuid": "7a6228a6-3172-4864-b289-a35055fb50b6"
+            },
+            {
+              "key": "payment_method",
+              "value": "credit_card",
+              "type": "text",
+              "uuid": "30fe1ba0-5d0d-4b33-bf1b-c05c40052f30"
+            },
+            {
+              "key": "reference_number",
+              "value": "2025888989",
+              "type": "text",
+              "uuid": "f0ac22c1-22c6-41c9-8835-455765a07ecd"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/invoices/1/payments",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "invoices",
+            "1",
+            "payments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Financial summary for a contract",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "1|gqcBHDyfPGCY6ei9BtIBDVrnkoIVe5rXSJhxJuEXa1315229",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "invoice_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "a3627b43-a11a-495f-ba39-dab69a008be7"
+            },
+            {
+              "key": "amount",
+              "value": "500",
+              "type": "text",
+              "uuid": "7a6228a6-3172-4864-b289-a35055fb50b6"
+            },
+            {
+              "key": "payment_method",
+              "value": "credit_card",
+              "type": "text",
+              "uuid": "30fe1ba0-5d0d-4b33-bf1b-c05c40052f30"
+            },
+            {
+              "key": "reference_number",
+              "value": "2025888989",
+              "type": "text",
+              "uuid": "f0ac22c1-22c6-41c9-8835-455765a07ecd"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/contracts/1/summary",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "contracts",
+            "1",
+            "summary"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
