@@ -32,7 +32,7 @@ class InvoiceController extends Controller
 
     public function index(Request $request, Contract $contract)
     {
-        //$this->authorize('view', $contract);
+        $this->authorize('view', [Invoice::class, $contract]);
 
         $filters = $request->only(['status', 'from', 'to']);
         $perPage = $request->input('per_page', 10);
@@ -58,7 +58,7 @@ class InvoiceController extends Controller
 
     public function show(Invoice $invoice)
     {
-        //$this->authorize('view', $invoice);
+        $this->authorize('view', [Invoice::class, $invoice->contract]);
 
         $invoice = $this->invoiceService
             ->getInvoiceDetails($invoice->id);
@@ -70,10 +70,9 @@ class InvoiceController extends Controller
         ]);
     }
 
-    public function recordPayment(StorePaymentRequest $request, $invoiceId)
+    public function recordPayment(StorePaymentRequest $request, Invoice $invoice)
     {
-        $invoice = $this->invoiceService->getInvoiceDetails($invoiceId);
-        $this->authorize('recordPayment', $invoice);
+        $this->authorize('recordPayment', [Invoice::class, $invoice]);
 
         $dto = CreatePaymentDTO::fromRequest($request);
         $payment = $this->invoiceService->recordPayment($dto);

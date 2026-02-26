@@ -12,9 +12,9 @@ class InvoicePolicy
         return $user->tenant_id === $contract->tenant_id;
     }
 
-    public function view(User $user, Invoice $invoice): bool
+    public function view(User $user, Contract $contract): bool
     {
-        return $user->tenant_id === $invoice->contract->tenant_id;
+        return $user->tenant_id === $contract->tenant_id;
     }
 
     public function recordPayment(User $user, Invoice $invoice): bool
